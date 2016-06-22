@@ -95,16 +95,17 @@ class CoreDataStack {
                     at: storeUrl,
                     options: options)
             } catch (let error as NSError) {
-                print("\(#function) (first try) Unable to add persistent store at url: \(storeUrl) error: \(error)")
+                print("\(#function) (first try) Unable to add persistent store at url: \(storeUrl) error: \(error.localizedDescription) code: \(error.code)")
                 if dumpInvalidStore == false {
                     // alert caller if not wishing to dump corrupt store
                     DispatchQueue.main.async {
                         finished?(success: false, error: error)
-                        return
                     }
+                    return
                 } else {
                     do {
                         // dump the old store
+                        print("\(#function) Dumping old store after first attempt failed")
                         try fileManager.removeItem(at: storeUrl)
                         // try once more
                         try psc.addPersistentStore(
@@ -116,8 +117,8 @@ class CoreDataStack {
                         print("\(#function) (second try) Unable to add persistent store at url: \(storeUrl): error: \(error)")
                         DispatchQueue.main.async {
                             finished?(success: false, error: error)
-                            return
                         }
+                        return
                     }
                 }
             }
