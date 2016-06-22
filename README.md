@@ -20,7 +20,7 @@ let coreDataStack = CoreDataStack(
         })
 ```
 
-## Installation
+## Installation (ol' fashion ⌘-C + ⌘-V)
 Copy and paste `CoreDataStack.swift` into your project.
 
 ## Author
