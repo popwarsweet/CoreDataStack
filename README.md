@@ -1,7 +1,7 @@
 # CoreDataStack
 
 ## About
-This is a template for a Core Data stack which can be used in apps needing basic support for background writes, main thread access, and background context for work. It has been ported to Swift from an Objective-C repo that's been used in many production apps.
+This is a template for a Core Data stack which can be used in apps needing basic support for background writes, main thread access, and background context for work. It has been ported to Swift from an [Objective-C repo](https://github.com/popwarsweet/KTZCoreDataStack).
 
 ## Example
 To init the stack:
