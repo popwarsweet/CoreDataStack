@@ -12,6 +12,22 @@ This is a template for a Core Data stack which can be used in apps needing basic
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+To init the stack:
+```swift
+let coreDataStack = CoreDataStack(
+            dataModelFilename: "ExampleModel",
+            storeFilename: "ExampleDatabase",
+            inMemory: false,
+            dumpInvalidStore: true,
+            finished: { (success, error) in
+                if success {
+                    print("successfully opened core data store")
+                } else {
+                    print("failed to open core data store: \(error)")
+                }
+        })
+```
+
 ## Installation
 
 ### Cocoapods
